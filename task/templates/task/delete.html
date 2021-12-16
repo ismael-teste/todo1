@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+</head>
+<body>
+    <p class="container">Are you sure you want to dele "{{item}}"</p>
+    <div>
+        <a href="{% url 'list' %}" class="ui secondary basic button">Cancel</a>
+        <form action="" method="POST">{% csrf_token %}
+            <input type="submit" name="Confirm" value="Confirm" class="ui negative basic button">
+        </form>
+    </div>
+</body>
+</html>

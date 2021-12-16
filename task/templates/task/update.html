@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+</head>
+<body>
+    <h3>Update Task</h3>
+    <form action="" method="POST" class="ui form">{% csrf_token %}
+        <div class="ui field action input">
+            {{ form }}
+            <input type="submit" name="Update Task" class="ui primary basic button">
+        </div>
+    </form>
+</body>
+</html>

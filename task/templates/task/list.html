@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+</head>
+<body>
+    <div>
+        <h3>ToDos</h3>
+
+        <form action="" method="POST" class="ui form">{% csrf_token %}
+            <div class="ui field action input" style="width: 525px;">
+                {{ form.title }}
+                {% if form.title %}
+                    <input type="submit" name="Create Task" class="ui primary button">
+                {% else %}
+                    <input type="submit" name="Update Task" class="ui primary basic button">
+                    {{form.completed}}
+                {% endif %}
+            </div>
+        </form>
+
+        {% for task in tasks %}
+            <div class="ui segment">
+                {% if task.completed == True %}
+                    <strike>{{ task }}</strike>
+                {% else %}
+                    <p>{{ task }}</p>
+                {% endif %}
+                <div class="right-align">
+                    <a href="{% url 'update' task.id %}" class="ui secondary basic button">
+                        Update
+                    </a>
+                    <a href="{% url 'delete' task.id %}"
+                       class="ui negative basic button right hide-on-med-and-down">
+                        Delete
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</body>
+</html>
